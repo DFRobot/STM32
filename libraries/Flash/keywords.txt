@@ -1,0 +1,32 @@
+#######################################
+# Syntax Coloring Map Flash
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+flash	KEYWORD1
+Flash	KEYWORD1
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+ErasePage	KEYWORD2
+EraseAllPages	KEYWORD2
+Read	KEYWORD2
+Write	KEYWORD2
+GetFlashSpace	KEYWORD2
+Buffer	KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+FLASH_Status	LITERAL1
+FLASH_BUSY	LITERAL1
+FLASH_ERROR_PG	LITERAL1
+FLASH_ERROR_WRP	LITERAL1
+FLASH_COMPLETE	LITERAL1
+FLASH_TIMEOUT	LITERAL1
+

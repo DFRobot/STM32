@@ -1,0 +1,28 @@
+#######################################
+# Syntax Coloring Map Timer
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Timer	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+~Timer	KEYWORD2
+config	KEYWORD2
+get_tNum	KEYWORD2
+change_callbackFunc	KEYWORD2
+change_type	KEYWORD2
+change_data	KEYWORD2
+change_timeinerval	KEYWORD2
+timerobj	KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+t_single	LITERAL1
+t_period	LITERAL1

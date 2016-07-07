@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>3081024420</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\Debug\Obj\pmc.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\pwmc.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\pio.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\system_sam3s.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\exceptions.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\startup_sam3s.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\rtt.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\spi.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\tc.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\timetick.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\twi.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\usart.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\wdt.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\startup_sam3s.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\exceptions.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\system_sam3s.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\adc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\pio.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\pmc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\pwmc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\rtc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\rtt.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\spi.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\tc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\timetick.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\twi.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\usart.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\wdt.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\libsam.pbd</file>
+      <file>$PROJ_DIR$\..\..\..\cores\sam\libsam_sam3s4c_ewarm_dbg.a</file>
+      <file>$PROJ_DIR$\..\cmsis\sam3s\include\sam3s.h</file>
+      <file>$PROJ_DIR$\..\cmsis\sam3s\include\sam3s1a.h</file>
+      <file>$PROJ_DIR$\..\cmsis\sam3s\include\sam3s1b.h</file>
+      <file>$PROJ_DIR$\..\cmsis\sam3s\include\sam3s1c.h</file>
+      <file>$PROJ_DIR$\..\cmsis\sam3s\include\sam3s2a.h</file>
+      <file>$PROJ_DIR$\..\cmsis\sam3s\include\sam3s2b.h</file>
+      <file>$PROJ_DIR$\..\cmsis\sam3s\include\sam3s2c.h</file>
+      <file>$PROJ_DIR$\..\cmsis\sam3s\include\sam3s4a.h</file>
+      <file>$PROJ_DIR$\..\cmsis\sam3s\include\sam3s4b.h</file>
+      <file>$PROJ_DIR$\..\cmsis\sam3s\include\sam3s4c.h</file>
+      <file>$PROJ_DIR$\..\cmsis\sam3s\source\templates\iar\startup_sam3s.c</file>
+      <file>$PROJ_DIR$\..\cmsis\sam3s\source\templates\exceptions.c</file>
+      <file>$PROJ_DIR$\..\cmsis\sam3s\source\templates\exceptions.h</file>
+      <file>$PROJ_DIR$\..\cmsis\sam3s\source\templates\system_sam3s.c</file>
+      <file>$PROJ_DIR$\..\cmsis\sam3s\source\templates\system_sam3s.h</file>
+      <file>$PROJ_DIR$\..\include\adc.h</file>
+      <file>$PROJ_DIR$\..\include\pio.h</file>
+      <file>$PROJ_DIR$\..\include\pio_it.h</file>
+      <file>$PROJ_DIR$\..\include\pmc.h</file>
+      <file>$PROJ_DIR$\..\include\pwmc.h</file>
+      <file>$PROJ_DIR$\..\include\rtc.h</file>
+      <file>$PROJ_DIR$\..\include\rtt.h</file>
+      <file>$PROJ_DIR$\..\include\sam3.h</file>
+      <file>$PROJ_DIR$\..\include\spi.h</file>
+      <file>$PROJ_DIR$\..\include\tc.h</file>
+      <file>$PROJ_DIR$\..\include\timetick.h</file>
+      <file>$PROJ_DIR$\..\include\twi.h</file>
+      <file>$PROJ_DIR$\..\include\usart.h</file>
+      <file>$PROJ_DIR$\..\include\wdt.h</file>
+      <file>$PROJ_DIR$\..\source\adc.c</file>
+      <file>$PROJ_DIR$\..\source\pio.c</file>
+      <file>$PROJ_DIR$\..\source\pio_it.c</file>
+      <file>$PROJ_DIR$\..\source\pmc.c</file>
+      <file>$PROJ_DIR$\..\source\pwmc.c</file>
+      <file>$PROJ_DIR$\..\source\rtc.c</file>
+      <file>$PROJ_DIR$\..\source\rtt.c</file>
+      <file>$PROJ_DIR$\..\source\spi.c</file>
+      <file>$PROJ_DIR$\..\source\tc.c</file>
+      <file>$PROJ_DIR$\..\source\timetick.c</file>
+      <file>$PROJ_DIR$\..\source\twi.c</file>
+      <file>$PROJ_DIR$\..\source\usart.c</file>
+      <file>$PROJ_DIR$\..\source\wdt.c</file>
+      <file>$PROJ_DIR$\..\chip.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\rtc.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\adc.o</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>IARCHIVE</name>
+          <file> 29</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\cmsis\sam3s\source\templates\iar\startup_sam3s.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 5</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\cmsis\sam3s\source\templates\exceptions.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 4</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\cmsis\sam3s\source\templates\system_sam3s.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 15</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 3</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\adc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 16</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 74</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\pio.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 2</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\pmc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 0</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\pwmc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 1</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\rtc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 73</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\rtt.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 6</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\spi.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 22</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 7</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\tc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 23</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 8</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\timetick.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 24</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\twi.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\usart.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 26</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 11</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\wdt.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+    </file>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>IARCHIVE</tool>
+    </forcedrebuild>
+  </configuration>
+  <configuration>
+    <name>Debug_sam3s</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>IARCHIVE</tool>
+    </forcedrebuild>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+  <configuration>
+    <name>Release_sam3s</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

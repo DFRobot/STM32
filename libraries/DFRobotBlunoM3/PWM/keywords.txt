@@ -1,0 +1,30 @@
+#######################################
+# Syntax Coloring Map PWM
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+#pwmMode	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+pwmMode	KEYWORD2
+pwmWrite	KEYWORD2
+adcMode	KEYWORD2
+adcRead	KEYWORD2
+
+
+
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+PWM_8_BIT	LITERAL1
+PWM_12_BIT	LITERAL1
+ADC_8_BIT	LITERAL1
+ADC_10_BIT	LITERAL1
+ADC_12_BIT	LITERAL1

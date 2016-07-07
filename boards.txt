@@ -1,0 +1,25 @@
+
+Bluno_M3.name=Bluno M3
+
+Bluno_M3.upload.tool=avrdude
+Bluno_M3.upload.protocol=wiring
+Bluno_M3.upload.maximum_size=481280
+Bluno_M3.upload.maximum_data_size=481280
+Bluno_M3.upload.speed=115200
+Bluno_M3.upload.disable_flushing=true
+Bluno_M3.upload.use_1200bps_touch=false
+Bluno_M3.upload.wait_for_upload_port=false
+
+Bluno_M3.build.mcu=cortex-m3
+Bluno_M3.build.simulator=ATmega2560
+Bluno_M3.build.f_cpu=72000000L
+Bluno_M3.build.usb_product="Bluno_M3"
+Bluno_M3.build.board=STM32_SUN
+Bluno_M3.build.core=blunoM3
+Bluno_M3.build.variant=BlunoM3
+Bluno_M3.build.extra_flags=-DSTM32F10X_HD -mthumb {build.usb_flags}
+Bluno_M3.build.ldscript=linker_scripts/gcc/flash.ld
+Bluno_M3.build.variant_system_lib=libstm_stm32f10x_hd_gcc_rel.a
+
+
+
