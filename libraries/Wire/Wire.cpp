@@ -38,7 +38,14 @@
  */
 uint32_t i2c_delay = 1;
 
+void SDA_IN(Port port){
+     pinMode(port.sda, INPUT);
+}
+void SDA_OUT(Port port){
+     pinMode(port.sda, OUTPUT);
+}
 void i2c_start(Port port) {
+	SDA_OUT(port);
 	digitalWrite(port.sda,HIGH);
     digitalWrite(port.scl,HIGH);
     I2C_DELAY;
@@ -49,24 +56,24 @@ void i2c_start(Port port) {
 
 void i2c_stop(Port port) {
 	
-	digitalWrite(port.sda,LOW);
+	SDA_OUT(port);
     digitalWrite(port.scl,LOW);
-	
+	digitalWrite(port.sda,LOW);
     I2C_DELAY;
     digitalWrite(port.scl,HIGH);
-	I2C_DELAY;
     digitalWrite(port.sda,HIGH);
+	I2C_DELAY;
 }
 
 boolean i2c_get_ack(Port port) {
     int time = 0;
 
-    I2C_DELAY;
+	SDA_IN(port); 
 	 digitalWrite(port.sda,HIGH);
 
-    I2C_DELAY;
+    I2C_DELAY_1US;
        digitalWrite(port.scl,HIGH);
-    I2C_DELAY;
+    I2C_DELAY_1US;
     while (digitalRead(port.sda))
     {
     	time++;
@@ -75,19 +82,21 @@ boolean i2c_get_ack(Port port) {
 			{
                      i2c_stop(port);
 				
-					 return false;
+					 return true;
 		}
 
 
 	}
 
       digitalWrite(port.scl,LOW);
-      return true;
+    return false;
    
 }
 
 void i2c_send_ack(Port port) {
-    I2C_DELAY;
+
+	digitalWrite(port.scl,LOW);
+	SDA_OUT(port);
     digitalWrite(port.sda,LOW);
     I2C_DELAY;
     digitalWrite(port.scl,HIGH);
@@ -96,40 +105,50 @@ void i2c_send_ack(Port port) {
 }
 
 void i2c_send_nack(Port port) {
-    I2C_DELAY;
+	
+    digitalWrite(port.scl,LOW);
+    SDA_OUT(port);
     digitalWrite(port.sda,HIGH);
     I2C_DELAY;
     digitalWrite(port.scl,HIGH);
+	I2C_DELAY;
+	digitalWrite(port.scl,LOW); 
 }
 
-uint8_t i2c_shift_in(Port port) {
+uint8_t i2c_shift_in(Port port, uint8_t ack) {
     uint8_t data = 0;
 
     int i;
+	SDA_IN(port);
     for (i=0;i<8;i++) {
+        digitalWrite(port.scl,LOW);
         I2C_DELAY;
         digitalWrite(port.scl,HIGH);
-        I2C_DELAY;
         data += digitalRead(port.sda) << (7-i);
         I2C_DELAY;
-        digitalWrite(port.scl,LOW);
+        
     }
 
+    if (!ack)
+        i2c_send_nack(port);//¡¤¡é?¨ªnACK
+    else
+        i2c_send_ack(port); //¡¤¡é?¨ªACK   
     return data;
 }
 
 void i2c_shift_out(Port port, uint8_t val) {
     int i;
 	//Serial1.begin(9600);
-
-	//digitalWrite(port.scl,LOW);
+	SDA_OUT(port); 
+	digitalWrite(port.scl,LOW);
     for (i=0;i<8;i++) {
-        I2C_DELAY;
+       
         digitalWrite(port.sda, !!(val & (1 << (7 - i))));
         I2C_DELAY;
         digitalWrite(port.scl, HIGH);
         I2C_DELAY;
         digitalWrite(port.scl, LOW); 
+		I2C_DELAY;
 		
     } 
 }
@@ -158,8 +177,8 @@ void TwoWire::begin() {
 void TwoWire::begin(uint8_t sda, uint8_t scl) {
     port.sda = sda;
     port.scl = scl;
-    pinMode(scl, OUTPUT_OD);
-    pinMode(sda, OUTPUT_OD);
+    pinMode(scl, OUTPUT);
+    pinMode(sda, OUTPUT);
     digitalWrite(scl, HIGH);
     digitalWrite(sda, HIGH);
 }
@@ -177,34 +196,70 @@ void TwoWire::beginTransmission(int slave_address) {
 }
 
 uint8_t TwoWire::endTransmission(void) {
-    if (tx_buf_overflow) return EDATA;
+	uint8_t ret;
+    if (tx_buf_overflow) 
+	{
+		return EDATA;
+    }
    // Serial1.begin(9600);
     i2c_start(port);
 
     i2c_shift_out(port, (tx_addr << 1) | I2C_WRITE);
-    if (!i2c_get_ack(port)) return ENACKADDR;
+    if (i2c_get_ack(port)) 
+		return ENACKADDR;
 
     // shift out the address we're transmitting to
     for (uint8_t i = 0; i < tx_buf_idx; i++) {
-        uint8_t ret = writeOneByte(tx_buf[i]); 
-        if (ret) return ret;    // SUCCESS is 0
+
+		ret = writeOneByte(tx_buf[i]); 
+        if (ret < 0) 
+			break;    // SUCCESS is 0
     } 
+
+	
     i2c_stop(port);
 
     tx_buf_idx = 0;
     tx_buf_overflow = false;
-    return SUCCESS;
+	
+    return ret;
 }
 
 uint8_t TwoWire::requestFrom(uint8_t address, int num_bytes) {
-    if (num_bytes > WIRE_BUFSIZ) num_bytes = WIRE_BUFSIZ;
+
+	int  ret = 0;
+	
+    if (num_bytes > WIRE_BUFSIZ)
+		num_bytes = WIRE_BUFSIZ;
 
     rx_buf_idx = 0;
     rx_buf_len = 0;
-    while (rx_buf_len < num_bytes) {
-        if(!readOneByte(address, rx_buf + rx_buf_len)) rx_buf_len++;
-        else break;
+
+	i2c_start(port);
+	
+	i2c_shift_out(port, (address << 1) | I2C_READ);
+	if (i2c_get_ack(port)) 
+		return ENACKADDR;
+	
+    while (rx_buf_len < num_bytes) 
+	{
+
+        if((num_bytes) > 1 && (rx_buf_len + 1 == num_bytes))
+		{
+			*(rx_buf + rx_buf_len) = i2c_shift_in(port, 0);
+        }
+		else
+		{
+
+			*(rx_buf + rx_buf_len) = i2c_shift_in(port, 1);
     }
+		
+        rx_buf_len++;
+    }  
+  
+	
+    i2c_stop(port);
+	
     return rx_buf_len;
 }
 
@@ -254,22 +309,21 @@ uint8_t TwoWire::read() {
 
 uint8_t TwoWire::writeOneByte(uint8_t byte) {
     i2c_shift_out(port, byte);
-    if (!i2c_get_ack(port)) return ENACKTRNS;
+    if (i2c_get_ack(port))
+	{
+		return ENACKTRNS;
+    }
+  
 //Serial1.begin(9600);
 //Serial1.println("44444444444444444444444444444");
     return SUCCESS;
 }
 
 uint8_t TwoWire::readOneByte(uint8_t address, uint8_t *byte) {
-    i2c_start(port);
-
-    i2c_shift_out(port, (address << 1) | I2C_READ);
-    if (!i2c_get_ack(port)) return ENACKADDR;
+   
 
     *byte = i2c_shift_in(port);
-
-    i2c_send_nack(port);
-    i2c_stop(port);
+   
 
     return SUCCESS;      // no real way of knowing, but be optimistic!
 }

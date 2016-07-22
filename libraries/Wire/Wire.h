@@ -58,7 +58,11 @@ typedef struct {
 #define I2C_WRITE 0
 #define I2C_READ  1
 
-#define I2C_DELAY do{for(int i=0;i<50 ;i++) {asm volatile("nop");}}while(0)
+#define STM32_TWI_READY      1
+#define STM32_TWI_BUS_BUSY   5
+#define STM32_TWI_BUS_ERROR  6
+#define I2C_DELAY do{for(int i=0;i< 5 ;i++) {asm volatile("nop");}}while(0)      // 4 us
+#define I2C_DELAY_1US do{for(int i=0;i<2 ;i++) {asm volatile("nop");}}while(0)  // 1 us
 
 class TwoWire {
  private:
